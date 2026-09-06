@@ -1,0 +1,95 @@
+name: Test and deploy Fluxweave to GitHub Pages
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run core tests
+        run: npm test
+      - name: Verify source integrity and package static application
+        run: npm run build:pages
+      - name: Upload GitHub Pages artifact
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/configure-pages@v5
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Verify published commit and runtime file checksums
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+          EXPECTED_COMMIT: ${{ github.sha }}
+        run: |
+          node --input-type=module <<'JS'
+          import { createHash } from 'node:crypto';
+          import { readFile, appendFile } from 'node:fs/promises';
+          const base = process.env.PAGE_URL;
+          const commit = process.env.EXPECTED_COMMIT;
+          const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
+          async function get(path) {
+            const url = new URL(path, base);
+            url.searchParams.set('commit', commit);
+            const response = await fetch(url, { signal: AbortSignal.timeout(15000), cache: 'no-store' });
+            if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
+            return response;
+          }
+          let ready = false;
+          for (let attempt = 0; attempt < 18; attempt++) {
+            try {
+              const version = await (await get('version.json')).json();
+              if (version.application !== 'Fluxweave' || version.commit !== commit) throw new Error('Deployment has not propagated yet');
+              ready = true;
+              break;
+            } catch (error) {
+              console.log(`Propagation check ${attempt + 1}: ${error.message}`);
+              await pause(5000);
+            }
+          }
+          if (!ready) throw new Error('The published version does not match the deployment commit');
+          const manifest = JSON.parse(await readFile('MANIFEST.json', 'utf8'));
+          const files = Object.entries(manifest.files).filter(([path]) => ['index.html', 'style.css', 'icon.svg'].includes(path) || path.startsWith('src/') || path.startsWith('examples/'));
+          for (let offset = 0; offset < files.length; offset += 4) {
+            await Promise.all(files.slice(offset, offset + 4).map(async ([path, expected]) => {
+              const bytes = Buffer.from(await (await get(path)).arrayBuffer());
+              const actual = createHash('sha256').update(bytes).digest('hex');
+              if (actual !== expected) throw new Error(`Published file integrity mismatch: ${path}`);
+              console.log(`Verified ${path}`);
+            }));
+          }
+          console.log(`Verified ${files.length} live runtime files at ${base} (${commit})`);
+          await appendFile(process.env.GITHUB_STEP_SUMMARY, `Published **[Fluxweave](${base})** at commit \`${commit}\`.\n\nAll ${files.length} live runtime file SHA256 checksums match the source manifest.\n`);
+          JS
