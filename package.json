@@ -1,0 +1,15 @@
+{
+  "name": "fluxweave",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A native WebGPU procedural visual programming workstation",
+  "scripts": {
+    "start": "node serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "build:pages": "node tools/build-pages.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

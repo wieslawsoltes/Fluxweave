@@ -1,0 +1,260 @@
+
+> fluxweave@1.0.0 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: preset chroma: validates and schedules
+ok 1 - preset chroma: validates and schedules
+  ---
+  duration_ms: 3.840366
+  type: 'test'
+  ...
+# Subtest: preset particles: validates and schedules
+ok 2 - preset particles: validates and schedules
+  ---
+  duration_ms: 0.485057
+  type: 'test'
+  ...
+# Subtest: preset geometry: validates and schedules
+ok 3 - preset geometry: validates and schedules
+  ---
+  duration_ms: 0.403204
+  type: 'test'
+  ...
+# Subtest: preset audio: validates and schedules
+ok 4 - preset audio: validates and schedules
+  ---
+  duration_ms: 0.401412
+  type: 'test'
+  ...
+# Subtest: preset shader: validates and schedules
+ok 5 - preset shader: validates and schedules
+  ---
+  duration_ms: 0.321492
+  type: 'test'
+  ...
+# Subtest: operator schemas have complete defaults and well-typed ports
+ok 6 - operator schemas have complete defaults and well-typed ports
+  ---
+  duration_ms: 0.634952
+  type: 'test'
+  ...
+# Subtest: typed ports reject mismatched signals and textures atomically
+ok 7 - typed ports reject mismatched signals and textures atomically
+  ---
+  duration_ms: 0.949714
+  type: 'test'
+  ...
+# Subtest: a same-frame cycle is rejected without changing the graph
+ok 8 - a same-frame cycle is rejected without changing the graph
+  ---
+  duration_ms: 0.517035
+  type: 'test'
+  ...
+# Subtest: feedback permits cyclic graphs with a frame boundary
+ok 9 - feedback permits cyclic graphs with a frame boundary
+  ---
+  duration_ms: 0.524516
+  type: 'test'
+  ...
+# Subtest: rewiring one input replaces its prior connection
+ok 10 - rewiring one input replaces its prior connection
+  ---
+  duration_ms: 0.648663
+  type: 'test'
+  ...
+# Subtest: parameter changes undo and redo
+ok 11 - parameter changes undo and redo
+  ---
+  duration_ms: 0.430365
+  type: 'test'
+  ...
+# Subtest: deleting removes dependent wires and bindings
+ok 12 - deleting removes dependent wires and bindings
+  ---
+  duration_ms: 0.605568
+  type: 'test'
+  ...
+# Subtest: bindings participate in cycle detection
+ok 13 - bindings participate in cycle detection
+  ---
+  duration_ms: 0.36008
+  type: 'test'
+  ...
+# Subtest: keyframe interpolation is linear, stepped, and smooth
+ok 14 - keyframe interpolation is linear, stepped, and smooth
+  ---
+  duration_ms: 0.136876
+  type: 'test'
+  ...
+# Subtest: keyframes clamp to endpoint values
+ok 15 - keyframes clamp to endpoint values
+  ---
+  duration_ms: 0.072439
+  type: 'test'
+  ...
+# Subtest: bindings override keyframes with gain and offset
+ok 16 - bindings override keyframes with gain and offset
+  ---
+  duration_ms: 0.177506
+  type: 'test'
+  ...
+# Subtest: LFO waveforms are bounded and periodic
+ok 17 - LFO waveforms are bounded and periodic
+  ---
+  duration_ms: 0.57326
+  type: 'test'
+  ...
+# Subtest: duplicate selection remaps internal wires and channel bindings
+ok 18 - duplicate selection remaps internal wires and channel bindings
+  ---
+  duration_ms: 0.627421
+  type: 'test'
+  ...
+# Subtest: grouping creates a typed reusable component
+ok 19 - grouping creates a typed reusable component
+  ---
+  duration_ms: 1.576142
+  type: 'test'
+  ...
+# Subtest: component instances have independent runtime node IDs
+ok 20 - component instances have independent runtime node IDs
+  ---
+  duration_ms: 0.5406
+  type: 'test'
+  ...
+# Subtest: shared definitions propagate to all instances
+ok 21 - shared definitions propagate to all instances
+  ---
+  duration_ms: 0.411116
+  type: 'test'
+  ...
+# Subtest: components reject multiple externally visible outputs
+ok 22 - components reject multiple externally visible outputs
+  ---
+  duration_ms: 0.398978
+  type: 'test'
+  ...
+# Subtest: schema rejects invalid versions, duplicate IDs and dangling edges
+ok 23 - schema rejects invalid versions, duplicate IDs and dangling edges
+  ---
+  duration_ms: 0.458677
+  type: 'test'
+  ...
+# Subtest: schema validates and limits dangerous resolutions and numbers
+ok 24 - schema validates and limits dangerous resolutions and numbers
+  ---
+  duration_ms: 0.385578
+  type: 'test'
+  ...
+# Subtest: history retains embedded assets without cloning them into each edit
+ok 25 - history retains embedded assets without cloning them into each edit
+  ---
+  duration_ms: 0.26645
+  type: 'test'
+  ...
+# Subtest: history merges continuous parameter edits and clears redo on branching
+ok 26 - history merges continuous parameter edits and clears redo on branching
+  ---
+  duration_ms: 0.37339
+  type: 'test'
+  ...
+# Subtest: torus: finite indexed geometry with normalized normals
+ok 27 - torus: finite indexed geometry with normalized normals
+  ---
+  duration_ms: 9.429906
+  type: 'test'
+  ...
+# Subtest: sphere: finite indexed geometry with normalized normals
+ok 28 - sphere: finite indexed geometry with normalized normals
+  ---
+  duration_ms: 3.872925
+  type: 'test'
+  ...
+# Subtest: box: finite indexed geometry with normalized normals
+ok 29 - box: finite indexed geometry with normalized normals
+  ---
+  duration_ms: 0.228392
+  type: 'test'
+  ...
+# Subtest: grid: finite indexed geometry with normalized normals
+ok 30 - grid: finite indexed geometry with normalized normals
+  ---
+  duration_ms: 2.743312
+  type: 'test'
+  ...
+# Subtest: matrix multiplication preserves identity and WebGPU zero-to-one projection
+ok 31 - matrix multiplication preserves identity and WebGPU zero-to-one projection
+  ---
+  duration_ms: 0.344497
+  type: 'test'
+  ...
+# Subtest: project JSON round-trip preserves complete graph semantics
+ok 32 - project JSON round-trip preserves complete graph semantics
+  ---
+  duration_ms: 0.661932
+  type: 'test'
+  ...
+# Subtest: a stepped track switches at the exact next keyframe
+ok 33 - a stepped track switches at the exact next keyframe
+  ---
+  duration_ms: 0.113039
+  type: 'test'
+  ...
+# Subtest: evaluated numeric parameters are bounded for GPU safety
+ok 34 - evaluated numeric parameters are bounded for GPU safety
+  ---
+  duration_ms: 0.100471
+  type: 'test'
+  ...
+# Subtest: invalid structural edits roll back before notifying renderers
+ok 35 - invalid structural edits roll back before notifying renderers
+  ---
+  duration_ms: 0.334312
+  type: 'test'
+  ...
+# Subtest: import rejects unsafe DOM identifiers and inherited operator names
+ok 36 - import rejects unsafe DOM identifiers and inherited operator names
+  ---
+  duration_ms: 0.244146
+  type: 'test'
+  ...
+# Subtest: texture pool reuses only released resources
+ok 37 - texture pool reuses only released resources
+  ---
+  duration_ms: 0.351908
+  type: 'test'
+  ...
+# Subtest: texture pool evicts cached allocations before rejecting live budget exhaustion
+ok 38 - texture pool evicts cached allocations before rejecting live budget exhaustion
+  ---
+  duration_ms: 0.13394
+  type: 'test'
+  ...
+# Subtest: import normalizes project names and rejects invalid viewport transforms
+ok 39 - import normalizes project names and rejects invalid viewport transforms
+  ---
+  duration_ms: 0.169024
+  type: 'test'
+  ...
+# Subtest: import rejects component interfaces that lie about endpoint types
+ok 40 - import rejects component interfaces that lie about endpoint types
+  ---
+  duration_ms: 0.583956
+  type: 'test'
+  ...
+# Subtest: import rejects duplicate edge identifiers
+ok 41 - import rejects duplicate edge identifiers
+  ---
+  duration_ms: 4.695138
+  type: 'test'
+  ...
+1..41
+# tests 41
+# suites 0
+# pass 41
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 137.759049

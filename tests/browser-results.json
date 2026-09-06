@@ -1,0 +1,479 @@
+{
+  "browser": "144.0.7559.96",
+  "software": true,
+  "checks": 33,
+  "results": [
+    {
+      "test": "WebGPU render, compute and mesh pipelines compile",
+      "passed": true,
+      "details": null
+    },
+    {
+      "test": "chroma starter renders nonuniform pixels",
+      "passed": true,
+      "details": {
+        "width": 320,
+        "height": 180,
+        "bytes": 116085,
+        "mean": 117.46646412037096,
+        "variance": 5323.820927815481,
+        "hash": 892058146,
+        "center": [
+          59,
+          12,
+          98,
+          255
+        ]
+      }
+    },
+    {
+      "test": "particles starter renders nonuniform pixels",
+      "passed": true,
+      "details": {
+        "width": 320,
+        "height": 180,
+        "bytes": 25964,
+        "mean": 55.409959490769054,
+        "variance": 9268.14581246327,
+        "hash": 2655939676,
+        "center": [
+          3,
+          4,
+          6,
+          255
+        ]
+      }
+    },
+    {
+      "test": "32,768 GPU particles dispatch and move",
+      "passed": true,
+      "details": {
+        "bytes": 1048576,
+        "compute": 1
+      }
+    },
+    {
+      "test": "geometry starter renders nonuniform pixels",
+      "passed": true,
+      "details": {
+        "width": 320,
+        "height": 180,
+        "bytes": 38747,
+        "mean": 28.93207754627952,
+        "variance": 3080.5643545232288,
+        "hash": 4197030477,
+        "center": [
+          3,
+          4,
+          6,
+          255
+        ]
+      }
+    },
+    {
+      "test": "indexed geometry and depth-tested rendering",
+      "passed": true,
+      "details": {
+        "meshBuffers": 1
+      }
+    },
+    {
+      "test": "audio starter renders nonuniform pixels",
+      "passed": true,
+      "details": {
+        "width": 320,
+        "height": 180,
+        "bytes": 146285,
+        "mean": 119.61029513888923,
+        "variance": 2228.448822639615,
+        "hash": 566518038,
+        "center": [
+          0,
+          255,
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "test": "shader starter renders nonuniform pixels",
+      "passed": true,
+      "details": {
+        "width": 320,
+        "height": 180,
+        "bytes": 144137,
+        "mean": 147.61914930555338,
+        "variance": 4545.06149016969,
+        "hash": 953995015,
+        "center": [
+          255,
+          255,
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "test": "WGSL diagnostics include compiler errors",
+      "passed": true,
+      "details": [
+        {
+          "type": "error",
+          "line": 1,
+          "column": 37,
+          "message": "unresolved value 'unknown_symbol'"
+        }
+      ]
+    },
+    {
+      "test": "live shader editing applies valid code and preserves output on errors",
+      "passed": true,
+      "details": null
+    },
+    {
+      "test": "selective recomputation and dependency invalidation",
+      "passed": true,
+      "details": {
+        "a": 2,
+        "b": 2,
+        "c": 2,
+        "unused": 2
+      }
+    },
+    {
+      "test": "pointer-drag creates typed graph connections",
+      "passed": true,
+      "details": null
+    },
+    {
+      "test": "inspector editing, undo and redo",
+      "passed": true,
+      "details": null
+    },
+    {
+      "test": "keyboard operator palette creates nodes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "test": "parameter auto-keying and interpolation",
+      "passed": true,
+      "details": {
+        "keys": [
+          {
+            "time": 0,
+            "value": 1,
+            "interpolation": "smooth"
+          },
+          {
+            "time": 2,
+            "value": 2,
+            "interpolation": "smooth"
+          }
+        ],
+        "value": 1.5
+      }
+    },
+    {
+      "test": "reusable subgraphs share edits with isolated runtime IDs",
+      "passed": true,
+      "details": {
+        "id": "comp_mtq5ntqc_1d",
+        "internal": [
+          {
+            "id": "n_mtq5ntqd_1e::b",
+            "radius": 9
+          },
+          {
+            "id": "n_mtq5ntr5_1f::b",
+            "radius": 9
+          }
+        ],
+        "inputs": 1
+      }
+    },
+    {
+      "test": "texture operator constant",
+      "passed": true,
+      "details": {
+        "width": 320,
+        "height": 180,
+        "bytes": 1954,
+        "mean": 171,
+        "variance": 0,
+        "hash": 2180677061,
+        "center": [
+          156,
+          119,
+          238,
+          255
+        ]
+      }
+    },
+    {
+      "test": "texture operator shape",
+      "passed": true,
+      "details": {
+        "width": 320,
+        "height": 180,
+        "bytes": 7732,
+        "mean": 35.96600694444937,
+        "variance": 5679.5085088225205,
+        "hash": 705396955,
+        "center": [
+          183,
+          237,
+          176,
+          255
+        ]
+      }
+    },
+    {
+      "test": "texture operator checker",
+      "passed": true,
+      "details": {
+        "width": 320,
+        "height": 180,
+        "bytes": 2542,
+        "mean": 122.83333333337812,
+        "variance": 10370.02777778252,
+        "hash": 3626157125,
+        "center": [
+          16,
+          20,
+          27,
+          255
+        ]
+      }
+    },
+    {
+      "test": "texture operator transform",
+      "passed": true,
+      "details": {
+        "width": 320,
+        "height": 180,
+        "bytes": 2542,
+        "mean": 122.83333333337812,
+        "variance": 10370.02777778252,
+        "hash": 3626157125,
+        "center": [
+          16,
+          20,
+          27,
+          255
+        ]
+      }
+    },
+    {
+      "test": "texture operator blur",
+      "passed": true,
+      "details": {
+        "width": 320,
+        "height": 180,
+        "bytes": 7221,
+        "mean": 122.83333333335493,
+        "variance": 6465.7986265399395,
+        "hash": 1195217469,
+        "center": [
+          98,
+          100,
+          110,
+          255
+        ]
+      }
+    },
+    {
+      "test": "texture operator edge",
+      "passed": true,
+      "details": {
+        "width": 320,
+        "height": 180,
+        "bytes": 3237,
+        "mean": 56.77309027777789,
+        "variance": 8860.60840009353,
+        "hash": 2742213585,
+        "center": [
+          255,
+          255,
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "test": "texture operator composite",
+      "passed": true,
+      "details": {
+        "width": 320,
+        "height": 180,
+        "bytes": 2542,
+        "mean": 122.83333333337812,
+        "variance": 10370.02777778252,
+        "hash": 3626157125,
+        "center": [
+          16,
+          20,
+          27,
+          255
+        ]
+      }
+    },
+    {
+      "test": "unconnected texture slots retain their port positions",
+      "passed": true,
+      "details": [
+        255,
+        0,
+        0,
+        255
+      ]
+    },
+    {
+      "test": "project reload recreates previews when an existing ID changes port type",
+      "passed": true,
+      "details": {
+        "replaced": true,
+        "views": 3,
+        "picture": {
+          "width": 320,
+          "height": 180,
+          "bytes": 1954,
+          "mean": 171,
+          "variance": 0,
+          "hash": 2180677061,
+          "center": [
+            156,
+            119,
+            238,
+            255
+          ]
+        }
+      }
+    },
+    {
+      "test": "embedded image decode \u2192 GPU upload \u2192 PNG pixel readback",
+      "passed": true,
+      "details": [
+        36,
+        184,
+        154,
+        255
+      ]
+    },
+    {
+      "test": "feedback captures after evaluation and exposes exactly the previous frame",
+      "passed": true,
+      "details": {
+        "zero": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "one": [
+          255,
+          0,
+          0,
+          255
+        ],
+        "two": [
+          255,
+          0,
+          0,
+          255
+        ],
+        "three": [
+          0,
+          0,
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "test": "video decoding, frame seeking and GPU upload",
+      "passed": true,
+      "details": {
+        "width": 64,
+        "height": 64,
+        "first": {
+          "width": 320,
+          "height": 180,
+          "bytes": 54265,
+          "mean": 65.10822916666206,
+          "variance": 2240.1996599046815,
+          "hash": 3389684264,
+          "center": [
+            17,
+            42,
+            43,
+            255
+          ]
+        },
+        "second": {
+          "width": 320,
+          "height": 180,
+          "bytes": 59154,
+          "mean": 69.87493055555397,
+          "variance": 2320.034612263147,
+          "hash": 1978092486,
+          "center": [
+            25,
+            24,
+            36,
+            255
+          ]
+        },
+        "firstState": {
+          "error": null,
+          "readyState": 4,
+          "width": 64,
+          "logs": [
+            {
+              "time": "6:38:42 PM",
+              "message": "WebGPU render and compute pipelines initialized.",
+              "level": "info"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "test": "WebAudio analyser produces a live audio-reactive signal",
+      "passed": true,
+      "details": {
+        "active": true,
+        "value": 1.1506238859180034
+      }
+    },
+    {
+      "test": "deleting media operators releases active sources",
+      "passed": true,
+      "details": null
+    },
+    {
+      "test": "Record button exports a decodable video containing actual GPU frames",
+      "passed": true,
+      "details": {
+        "bytes": 425192,
+        "width": 320,
+        "height": 180,
+        "type": "video/webm"
+      }
+    },
+    {
+      "test": "IndexedDB project save and reload",
+      "passed": true,
+      "details": {
+        "name": "Browser persistence test",
+        "scale": 4.25
+      }
+    },
+    {
+      "test": "no uncaught JavaScript errors or unexpected GPU validation errors",
+      "passed": true,
+      "details": null
+    }
+  ],
+  "pageErrors": []
+}
